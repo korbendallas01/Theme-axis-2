@@ -1,0 +1,71 @@
+<div class="kpgrid flush">
+
+	<div class="kpgrid_wrap">
+
+		<div class="kpgrid_content">
+
+			<koken:loop>
+
+				<figure id="content_{{ content.id }}" class="kpgriditem block type_{{ content.file_type }} scrollstop">
+
+					<koken:link lightbox="{{ settings.link_lbox }}" title="{{ content.title }}" class="figimg">
+
+						<koken:content_video><span class="vid_show vid_play"><i class="kvicon-vid-play"></i>{{ content.duration }}</span></koken:content_video>
+
+						<koken:if data="{{ settings.img_scale_content }}" equals="uniform">
+
+							<koken:img lazy="true" size="{{ settings.thumb_ratio_content }}" />
+
+						<koken:else>
+
+							<koken:img lazy="true" class="height_limit" />
+
+						</koken:if>
+
+						<koken:if true="settings.show_content_load_spin">
+							<div class="spinner_pos"><div class="spinner"></div></div>
+						</koken:if>
+
+					</koken:link>
+
+					<figcaption>
+
+						<koken:if true="settings.show_timestamp"><koken:time /></koken:if>
+
+						<koken:if true="settings.show_title">
+							<koken:not empty="content.title">
+								<h2>
+									<koken:link title="{{ content.title }}">
+										{{ content.title }}
+									</koken:link>
+								</h2>
+							</koken:not>
+						</koken:if>
+
+						<koken:if true="settings.show_rating">
+							<koken:rating>
+								<p>{{ rating }}</p>
+							</koken:rating>
+						</koken:if>
+
+						<koken:if true="settings.show_caption">
+							<p class="caption">
+								{{ content.caption }}
+							</p>
+						</koken:if>
+
+						<koken:include file="layouts/tags-cats.html" />
+
+					</figcaption>
+
+				</figure>
+
+			</koken:loop>
+
+		</div>
+
+	</div>
+
+</div>
+
+<koken:include file="js/pillar_axis.html" />

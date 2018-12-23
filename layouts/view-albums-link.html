@@ -1,0 +1,15 @@
+<koken:if true="settings.show_albums_link">
+
+	<koken:albums>
+
+		<p class="meta nob">
+      {{ language.from_the_album }}
+		</p>
+
+		<koken:loop separator=", ">
+			<h4 class="inl"><koken:link>{{ album.title }}</koken:link></h4>
+		</koken:loop>
+
+	</koken:albums>
+
+</koken:if>

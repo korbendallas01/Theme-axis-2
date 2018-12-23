@@ -1,0 +1,81 @@
+<koken:loop>
+
+	<figure id="content_{{ content.id }}" class="block unit scrollstop">
+
+		<div class="main-content">
+
+			<koken:if true="settings.link_lbox">
+				<koken:content_image>
+					<koken:link lightbox="true" title="{{ content.title }}" class="figimg">
+						<koken:img lazy="true" class="height_limit" />
+					</koken:link>
+				</koken:content_image>
+				<koken:content_video>
+					<koken:link lightbox="true" title="{{ content.title }}">
+						<koken:video />
+					</koken:link>
+				</koken:content_video>
+			<koken:else>
+				<koken:content_image>
+					<koken:link title="{{ content.title }}" class="figimg">
+						<koken:img lazy="true" class="height_limit" />
+				</koken:link>
+				</koken:content_image>
+				<koken:content_video>
+					<koken:video />
+				</koken:content_video>
+			</koken:if>
+
+			<koken:if true="settings.show_content_load_spin">
+				<div class="spinner_pos"><div class="spinner"></div></div>
+			</koken:if>
+
+		</div>
+
+		<figcaption class="text-content">
+
+			<koken:if true="settings.show_timestamp">
+				<koken:time />
+			</koken:if>
+
+			<koken:if true="settings.show_title">
+				<koken:not empty="content.title">
+					<h2>{{ content.title }}</h2>
+				</koken:not>
+			</koken:if>
+
+			<koken:if true="settings.show_rating">
+				<koken:rating>
+					<p>{{ rating }}</p>
+				</koken:rating>
+			</koken:if>
+
+			<koken:if true="settings.show_caption">
+				<div class="cap_width">
+					{{ content.caption paragraphs="true" }}
+				</div>
+			</koken:if>
+
+			<koken:include file="layouts/view-albums-link.html" />
+
+			<koken:include file="layouts/tags-cats.html" />
+
+			<koken:if true="settings.show_disc_content_count">
+
+				<koken:discussion_count>
+					<koken:link>
+						<p class="meta">
+							{{ discussion_count }}
+						</p>
+					</koken:link>
+				</koken:discussion_count>
+
+			</koken:if>
+
+		</figcaption>
+
+	</figure>
+
+</koken:loop>
+
+<koken:keyboard_scroll element="figure" offset="-20" />

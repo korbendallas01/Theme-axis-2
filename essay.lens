@@ -1,0 +1,117 @@
+<koken:include file="layouts/header.html" />
+
+<koken:load>
+
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ essay.title strip_html='true' }}" />
+		<meta property="og:description" content="{{ essay.excerpt strip_html='true' }}" />
+		<meta property="og:url" content="{{ essay.url }}" />
+		<meta property="og:type" content="website" />
+		<koken:featured_image>
+		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		</koken:featured_image>
+		<meta name="medium" content="article" />
+		<koken:not empty="profile.twitter">
+			<koken:featured_image>
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@{{ profile.twitter }}" />
+			<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			<meta name="twitter:image" content="{{ content.presets.medium_large.url }}" />
+			</koken:featured_image>
+		</koken:not>
+	</koken:head>
+
+	<article id="essay_{{ essay.id }}" class="measure_editable">
+
+    	<koken:include file="layouts/article-full.html" />
+
+    	<footer>
+
+    		<div class="meta">
+
+			     <koken:topics>
+			          <div id="essay_topics">
+			               <p class="meta nob">
+			                    {{ language.see_more }}
+			               </p>
+			               <koken:loop separator=", ">
+			                    <h4 class="inline">
+			                         <koken:link title="{{ language.view_title collate='album.title' }}">
+			                              {{ album.title }}
+			                         </koken:link>
+			                    </h4>
+			               </koken:loop>
+			          </div>
+			     </koken:topics>
+
+			     <koken:include file="layouts/tags-cats.html" />
+
+			</div>
+
+		  <koken:if true="settings.social_bttns_show_one">
+
+			<koken:include file="layouts/share-links.html" />
+
+		  </koken:if>
+
+		  <koken:include file="layouts/like-tweet.html" />
+
+		</footer>
+
+		<koken:if true="settings.show_disc_essay">
+
+			<koken:discussion>
+
+				<div id="kdiscuss" class="lh_plus_top">
+
+					{{ discussion }}
+
+				</div>
+
+			</koken:discussion>
+
+		</koken:if>
+
+	</article>
+
+	<section id="feat_essays_footer">
+
+		<koken:load source="featured_essays">
+
+			<koken:if condition="{{ count }} >= 1">
+
+				<hr class="lh_plus_dos">
+
+				<div id="page-title">
+					<h4>{{ language.featured_essays }}</h4>
+				</div>
+
+				<hr class="lh_plus_dos">
+
+				<koken:loop>
+					<div class="unit">
+						<h2>
+							<koken:link title="{{ essay.title }}">{{ essay.title }}</koken:link>
+						</h2>
+						<p class="cap_width">
+							{{ essay.excerpt }}
+						</p>
+					</div>
+				</koken:loop>
+
+				<hr class="lh_plus_dos">
+
+			</koken:if>
+
+		</koken:load>
+
+	</section>
+
+	<koken:include file="layouts/slideshow-spinner.html" />
+
+</koken:load>
+
+<koken:include file="layouts/footer.html" />

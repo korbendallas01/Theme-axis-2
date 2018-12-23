@@ -1,0 +1,283 @@
+<koken:include file="layouts/header.html" />
+
+<koken:load>
+
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ content.title strip_html="true" }}" />
+		<meta property="og:description" content="{{ content.caption strip_html="true" }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		<meta property="og:url" content="{{ content.url }}" />
+		<koken:content_image>
+			<koken:not empty="profile.twitter">
+				<meta name="twitter:card" content="photo" />
+				<meta name="twitter:site" content="@{{ profile.twitter }}" />
+				<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			</koken:not>
+		</koken:content_image>
+	</koken:head>
+
+	<koken:parent>
+		<koken:variable name="previous_label" value="{{ language.previous }}" />
+		<koken:variable name="next_label" value="{{ language.next }}" />
+		<koken:variable name="col_label" value="{{ album.title }}" />
+	<koken:else>
+		<koken:variable name="previous_label" value="{{ language.newer }}" />
+		<koken:variable name="next_label" value="{{ language.older }}" />
+		<koken:variable name="col_label" value="{{ language.latest }}" />
+	</koken:parent>
+
+	<koken:not true="content.public">
+
+		<koken:if true="settings.show_vis_msg">
+
+			<div id="unlisted_content">
+
+				<hr>
+
+				<h4>{{ settings.unlisted_msg }}</h4>
+
+				<hr>
+
+			</div>
+
+		</koken:if>
+
+	</koken:not>
+
+	<ul class="nav_content split lh_plus">
+		<li>
+			<koken:previous>
+				<koken:link title="{{ previous_label }}" bind_to_key="left" class="pag mute larr" data-paginate-pjax="true">{{ previous_label }}</koken:link>
+			<koken:else>
+				<span class="pag disabled larr">
+					{{ previous_label }}
+				</span>
+			</koken:previous>
+		</li>
+		<li>
+			<koken:context>
+				<koken:link title="{{ language.view_title collate='context.title' }}" class="pag mute">
+					{{ context.title }}
+				</koken:link>
+			<koken:else>
+				<koken:link to="contents" title="{{ language.content }}" class="pag mute">{{ language.latest }}</koken:link>
+			</koken:context>
+		</li>
+		<li>
+			<koken:next>
+				<koken:link title="{{ next_label }}" bind_to_key="right" class="pag mute rarr" data-paginate-pjax="true">{{ next_label }}</koken:link>
+			<koken:else>
+				<span class="pag disabled rarr">
+					{{ next_label }}
+				</span>
+			</koken:next>
+		</li>
+	</ul>
+
+	<div class="main-content">
+
+		<figure data-pjax-transition>
+
+			<koken:content_video>
+
+				<koken:video />
+
+			</koken:content_video>
+
+			<koken:content_image>
+
+				<div class="img_wrap">
+					<koken:if true="settings.show_content_load_spin">
+						<div class="spinner_pos"><div class="spinner"></div></div>
+					</koken:if>
+					<koken:link lightbox="true">
+						<koken:img lazy="true" class="content_vfit" />
+					</koken:link>
+				</div>
+
+			</koken:content_image>
+
+			<figcaption class="text-content">
+
+				<koken:if true="settings.show_timestamp"><koken:time /></koken:if>
+
+				<koken:if true="settings.show_title">
+					<h1>{{ content.title }}</h1>
+				</koken:if>
+
+				<koken:if true="settings.show_rating">
+					<koken:rating>
+						<p>{{ rating }}</p>
+					</koken:rating>
+				</koken:if>
+
+				<koken:if true="settings.show_exif">
+					<koken:exif>
+						<ol id="exif_meta" class="meta">
+							<koken:not empty="exif.aperture">
+								<li>
+									{{ exif.aperture }}
+								</li>
+							</koken:not>
+							<koken:not empty="exif.exposure">
+								<li>
+									{{ exif.exposure }}
+								</li>
+							</koken:not>
+							<koken:not empty="exif.focal_length">
+								<li>
+									{{ exif.focal_length }}
+								</li>
+							</koken:not>
+							<koken:not empty="exif.iso_speed_ratings">
+								<li>
+									{{ exif.iso_speed_ratings }}
+								</li>
+				    		</koken:not>
+						</ol>
+					</koken:exif>
+				</koken:if>
+
+				<koken:if true="settings.show_caption">
+					<div id="caption-content">
+						{{ content.caption paragraphs="true" }}
+					</div>
+				</koken:if>
+
+				<koken:if true="{{ settings.show_content_source }}">
+
+					<koken:not empty="{{ content.source.title }}">
+
+						<p class="meta">
+
+							<a href="{{ content.source.url }}" onclick="return !window.open(this.href);" title="{{ language.view_at_title collate='content.source.title' }}">{{ language.view_at_title collate="content.source.title" }}</a>
+
+						</p>
+
+					</koken:not>
+
+				</koken:if>
+
+				<koken:if true="settings.show_geo">
+
+					<koken:geolocation>
+
+						<p class="meta">
+
+							<i class="kicon-location"></i>
+							<a target="_blank" href="http://maps.google.com/?q={{ geolocation.latitude }},{{ geolocation.longitude }}" title="{{ geolocation.latitude }}, {{ geolocation.longitude }}">{{ language.view_on_a_map }}</a>
+
+						</p>
+
+					</koken:geolocation>
+
+				</koken:if>
+
+				<koken:max_download>
+
+					<p class="meta">
+						<koken:link title="{{ language.download }} {{ max_download.width }}x{{ max_download.height }}">{{ language.download }} ({{ max_download.width }}x{{ max_download.height }})</koken:link>
+					</p>
+
+				</koken:max_download>
+
+					<koken:if true="settings.show_tags">
+
+						<koken:tags>
+
+							<p class="meta">
+
+								<koken:loop separator="&nbsp;">
+
+									<koken:link class="mute tag">{{ tag.title }}</koken:link>
+
+								</koken:loop>
+
+							</p>
+
+						</koken:tags>
+
+					</koken:if>
+
+					<koken:if true="settings.show_cats">
+
+						<koken:categories>
+
+							<p class="meta nob">
+								{{ language.categories }}
+							</p>
+
+							<koken:loop separator=", ">
+
+								<h4 class="inline"><koken:link>{{ category.title }}</koken:link></h4>
+
+							</koken:loop>
+
+						</koken:categories>
+
+					</koken:if>
+
+					<koken:parent>
+
+						<p class="meta nob">
+							{{ language.from_the_album }}
+						</p>
+						<h4 class="inline">
+							<koken:link>{{ album.title }}</koken:link>
+						</h4>
+
+					<koken:else>
+
+						<koken:albums>
+
+							<p class="meta nob">
+								{{ language.from_the_album }}
+							</p>
+
+							<koken:loop separator=", ">
+								<h4 class="inline"><koken:link>{{ album.title }}</koken:link></h4>
+							</koken:loop>
+
+						</koken:albums>
+
+					</koken:parent>
+
+					<koken:if true="settings.social_bttns_show_one">
+
+						<koken:if true="content.public">
+
+							<koken:include file="layouts/share-links.html" />
+
+						</koken:if>
+
+					</koken:if>
+
+			</figcaption>
+
+			<koken:include file="layouts/like-tweet.html" />
+
+			<koken:if true="settings.show_disc_content">
+
+				<koken:discussion>
+
+					<div id="kdiscuss" class="lh_plus_top">
+
+						{{ discussion }}
+
+					</div>
+
+				</koken:discussion>
+
+			</koken:if>
+
+		</figure>
+
+	</div>
+
+</koken:load>
+
+<koken:include file="layouts/footer.html" />

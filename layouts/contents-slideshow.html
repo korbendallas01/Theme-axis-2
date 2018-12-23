@@ -1,0 +1,117 @@
+<ul class="nav_content split lh_plus">
+	<li>
+		<a href="#" id="sldshw-prev" title="{{ language.previous }}" data-bind-to-key="left" class="pag mute larr">{{ language.previous }}</a>
+	</li>
+	<li>
+		<a href="#" id="sldshw-play" title="{{ language.pause }}" data-bind-to-key="space" class="pag mute">{{ language.pause }}</a>
+	</li>
+	<li>
+		<a href="#" id="sldshw-next" title="{{ language.next }}" data-bind-to-key="right" class="pag mute rarr">{{ language.next }}</a>
+	</li>
+</ul>
+
+<figure class="block">
+
+	<div class="slideshow limit_slideshow">
+
+		<koken:if true="settings.show_content_load_spin">
+			<div class="spinner_pos"><div class="spinner"></div></div>
+		</koken:if>
+
+		<koken:pulse jsvar="pulse" height="100%" group="content" next="#sldshw-next" previous="#sldshw-prev" toggle="#sldshw-play" link_to="advance" transition_type="fade" transition_duration="1" fallbacktext="No content found." />
+
+	</div>
+
+	<figcaption class="text-content">
+
+		<koken:if true="settings.show_timestamp"><p class="time"></p></koken:if>
+
+		<koken:if true="settings.show_exif">
+			<ol id="exif_meta" class="meta"></ol>
+		</koken:if>
+
+		<koken:if true="settings.show_title">
+
+			<h2>
+				<a id="content_link" href="#" title=""></a>
+			</h2>
+
+		</koken:if>
+
+		<koken:if true="settings.show_caption">
+
+		<div id="caption-content">
+			&nbsp;
+		</div>
+
+		</koken:if>
+
+	</figcaption>
+
+</figure>
+
+<script>
+	pulse.on( 'start', function() {
+		$('.spinner_pos').addClass('active');
+		playState(pulse.options.autostart);
+	});
+	pulse.on( 'dataloaded', function() {
+		$('.spinner_pos').removeClass('active');
+	});
+	pulse.on( 'playing', function(isPlaying) {
+		var el = $('#sldshw-play');
+		playState(isPlaying);
+	});
+	pulse.on( 'transitionstart', function(e) {
+		var data = e.data,
+			date = $('.time'),
+			caption = $('#caption-content');
+			link = $('#content_link');
+
+		currUrl = e.data.presets.medium_large.url;
+
+		link.attr("href", data.url);
+		link.html( data.title );
+		link.attr("title", data.title );
+
+		var cs = data.caption;
+		var csf = cs.replace(/\n/g,"<br />");
+		caption.html( csf );
+
+		date.html( $K.formattedDate(data.published_on) );
+
+		var exif_fields = ['aperture','exposure','focal_length','iso_speed_ratings'],
+			exif_element = $('#exif_meta'),
+			wrap = $('<li/>');
+
+		var fields = $.map(e.data.exif_fields, function(field) {
+			if ($.inArray(field,exif_fields) !== -1) {
+				return $.map(e.data.exif, function (exif_val) {
+					if (exif_val.key === field) {
+						return (exif_val.clean) ? exif_val.clean : exif_val.raw;
+					}
+				});
+			}
+		});
+
+		exif_element.html($.map(fields, function(field) {
+			return wrap.clone().text(field);
+		}));
+	});
+	pulse.on('waiting', function(e) {
+		if (e) {
+			$('.spinner_pos').addClass('active');
+		} else {
+			$('.spinner_pos').removeClass('active');
+		}
+	});
+
+	function playState(playing) {
+		var el = $('#sldshw-play');
+		if (playing) {
+			el.html('{{ language.pause }}');
+		} else {
+			el.html('{{ language.play }}');
+		}
+	}
+</script>

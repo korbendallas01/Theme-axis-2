@@ -1,0 +1,33 @@
+<koken:event_essay>
+
+	<figure class="block unit scrollstop">
+
+		<koken:featured_image>
+			<koken:link title="{{ essay.title }}" class="figimg">
+				<koken:img lazy="true" />
+			</koken:link>
+		</koken:featured_image>
+
+		<figcaption>
+
+			<koken:time />
+
+			<h2>
+				<koken:link title="{{ essay.title }}">
+					{{ essay.title }}
+				</koken:link>
+			</h2>
+
+			<p class="caption cap_width">
+				{{ essay.excerpt }}
+			</p>
+
+			<h6>
+				<koken:link class="pag">{{ language.more }}</koken:link>
+			</h6>
+
+		</figcaption>
+
+	</figure>
+
+</koken:event_essay>

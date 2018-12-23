@@ -1,0 +1,1607 @@
+{
+	"name": "Axis 2",
+	"version": "2.6.3",
+	"description": "Axis is a simple, elegant theme inspired by the presentation of fine art photography in photo books and galleries. Includes plenty of whitespace and minimal typography to help focus a viewer's complete attention on each and every image. Axis is the perfect theme for photographers who believe less is more when it comes to presenting their work and words online.",
+	"demo": "http://axis.koken.me",
+	"terms": "All 2.x updates free",
+	"documentation": "https://store.koken.me/themes/axis",
+	"author": {
+		"name": "Koken",
+		"link": "https://store.koken.me/authors/koken"
+	},
+	"koken_version_required": "0.22.15",
+
+	"templates": {
+		"featured_albums": {
+			"name": "Featured albums and sets slideshow",
+			"description": "Alternate version of home page slideshow",
+			"source": "featured_albums"
+		}
+	},
+
+	"navigation_groups": {
+		"footer": {
+			"label": "Footer",
+			"description": "Footer navigation group",
+			"defaults": [
+				"twitter", "facebook", "gplus"
+			]
+		}
+	},
+
+	"styles": {
+		"white": {
+			"label": "White",
+			"variables": {
+				"background_color": "#fff",
+				"title_color": "#000",
+				"body_color": "#707070",
+				"firefox_alias": "auto",
+				"header_color": "#000",
+				"line_color": "#ccc",
+				"link_color": "#000",
+				"link_hover_color": "#000",
+				"mob_bg_color": "#f0f0f0",
+				"current_color": "#000",
+				"spin_color_back": "rgba(0,0,0,0.15)",
+				"spin_color_front": "rgba(0,0,0,1)",
+				"input_border": "rgba(0,0,0,0.15)",
+				"input_border_active": "rgba(0,0,0,0.3)",
+				"input_placeholder": "rgba(0,0,0,0.44)"
+			}
+		},
+		"black": {
+			"label": "Black",
+			"variables": {
+				"background_color": "#000",
+				"title_color": "#ccc",
+				"body_color": "#818181",
+				"firefox_alias": "grayscale",
+				"header_color": "#ccc",
+				"line_color": "#222",
+				"link_color": "#ccc",
+				"link_hover_color": "#fff",
+				"mob_bg_color": "#222",
+				"current_color": "#ccc",
+				"spin_color_back": "rgba(255,255,255,0.2)",
+				"spin_color_front": "rgba(255,255,255,1)",
+				"input_border": "rgba(255,255,255,0.15)",
+				"input_border_active": "rgba(255,255,255,0.3)",
+				"input_placeholder": "rgba(255,255,255,0.44)"
+			}
+		},
+		"warmwhite": {
+			"label": "Warm White",
+			"variables": {
+				"background_color": "#f7f5f2",
+				"title_color": "#1f1e1e",
+				"body_color": "#666363",
+				"firefox_alias": "auto",
+				"header_color": "#1f1e1e",
+				"line_color": "#edebe8",
+				"link_color": "#1f1e1e",
+				"link_hover_color": "#000",
+				"mob_bg_color": "#edebe8",
+				"current_color": "#1f1e1e",
+				"spin_color_back": "rgba(31,30,30,0)",
+				"spin_color_front": "rgba(31,30,30,1)",
+				"input_border": "rgba(0,0,0,0.15)",
+				"input_border_active": "rgba(0,0,0,0.3)",
+				"input_placeholder": "rgba(0,0,0,0.44)"
+			}
+		},
+		"mattegray": {
+			"label": "Matte Gray",
+			"variables": {
+				"background_color": "#353636",
+				"title_color": "#ccc",
+				"body_color": "#999",
+				"firefox_alias": "grayscale",
+				"header_color": "#ccc",
+				"line_color": "#3e3f40",
+				"link_color": "#ccc",
+				"link_hover_color": "#ddd",
+				"mob_bg_color": "#232424",
+				"current_color": "#ccc",
+				"spin_color_back": "rgba(240,240,240,0.2)",
+				"spin_color_front": "rgba(240,240,240,1)",
+				"input_border": "rgba(255,255,255,0.15)",
+				"input_border_active": "rgba(255,255,255,0.3)",
+				"input_placeholder": "rgba(255,255,255,0.44)"
+			}
+		}
+	},
+
+	"settings": {
+		"Language": {
+			"icon": "info",
+			"settings": {
+				"language": {
+					"label": "Language",
+					"type": "select",
+					"options": [
+						{ "label": "Danish", "value": "da" },
+						{ "label": "Dutch", "value": "nl" },
+						{ "label": "English", "value": "en" },
+						{ "label": "French", "value": "fr" },
+						{ "label": "German", "value": "de" },
+						{ "label": "Greek", "value": "el" },
+						{ "label": "Hungarian", "value": "hu" },
+						{ "label": "Icelandic", "value": "is" },
+						{ "label": "Italian", "value": "it" },
+						{ "label": "Norwegian", "value": "no" },
+						{ "label": "Polish", "value": "pl" },
+						{ "label": "Russian", "value": "ru" },
+						{ "label": "Spanish", "value": "es" },
+						{ "label": "Swedish", "value": "sv" }
+					],
+					"value": "en"
+				}
+			}
+		},
+		"Page title": {
+			"icon": "type",
+			"settings": {
+				"show_page_title": {
+					"label": "Show title",
+					"type": "boolean",
+					"value": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"control_first": true,
+					"value": {
+						"archive.albums,archive.contents,archive.essays": true,
+						"category,categories,tag,tags": true,
+						"timeline": false,
+						"essays": false,
+						"album,set": true,
+						"albums,sets": false,
+						"contents,favorites": false
+					},
+					"scope": [ "album", "albums", "archive.albums", "archive.contents", "archive.essays", "category", "categories", "contents", "essays", "favorites", "set", "sets", "tag", "tags", "timeline" ]
+				},
+				"show_album_dl": {
+					"label": "Show download link",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scope": [ "album" ]
+				},
+				"show_page_desc": {
+					"label": "Show description",
+					"type": "boolean",
+					"value": true,
+					"scoped_values": true,
+					"out_of_scope_value": false,
+					"control_first": true,
+					"scope": [ "album", "set" ]
+				},
+				"show_page_tags": {
+					"label": "Show tags",
+					"type": "boolean",
+					"value": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"control_first": true,
+					"scope": [ "album", "set" ]
+				},
+				"show_page_cats": {
+					"label": "Show categories",
+					"type": "boolean",
+					"value": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"control_first": true,
+					"scope": [ "album", "set" ]
+				},
+				"show_page_topics": {
+					"label": "Show topics",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scope": [ "album" ]
+				},
+				"show_page_line": {
+					"label": "Show divider line",
+					"type": "boolean",
+					"value": false,
+					"out_of_scope_value": false,
+					"control_first": true,
+					"dependencies": {
+	                    "evaluate": "all",
+	                    "conditions": [
+	                         {
+	                              "option": "show_page_title",
+	                              "equals": true
+	                         }
+	                    ]
+	               	},
+					"scope": [ "album", "albums", "archive.albums", "archive.contents", "archive.essays", "category", "categories", "contents", "date", "essays", "favorites", "set", "sets", "tag", "tags", "timeline" ]
+				}
+			}
+		},
+		"Layout": {
+			"icon": "page",
+			"settings": {
+				"page_width": {
+					"label": "Max width",
+					"type":"slider",
+					"min":960,
+					"max":1680,
+					"value":960,
+					"step":1,
+					"suffix":"px",
+					"note": "Largest possible width on desktops"
+				},
+				"page_margin_top": {
+					"label": "Site margin top",
+					"type": "slider",
+					"min": 0,
+					"max": 8,
+					"step": 0.1,
+					"value": 5.55,
+					"suffix": "em"
+				},
+				"main_margin_top": {
+					"label": "Main margin top",
+					"type": "slider",
+					"min": 0,
+					"max": 8,
+					"step": 0.1,
+					"value": 3.7,
+					"suffix": "em"
+				},
+				"footer_margin": {
+					"label": "Footer margin",
+					"type": "slider",
+					"min": 0,
+					"max": 8,
+					"step": 0.1,
+					"value": 3.7,
+					"suffix": "em"
+				},
+				"album_layout": {
+					"label": "Layout",
+					"type": "select",
+					"options": [
+						{ "label":"Slideshow", "value": "slideshow" },
+						{ "label":"Grid", "value": "grid" },
+						{ "label":"List", "value": "list" }
+					],
+					"reload_preview": true,
+					"value": "list",
+					"scope": [ "album" ]
+				},
+				"albums_layout": {
+					"label": "Layout",
+					"type": "select",
+					"options": [
+						{ "label": "Grid", "value": "grid" },
+						{ "label": "List", "value": "list" }
+					],
+					"value": "grid",
+					"scoped_values": true,
+					"scope": [ "albums", "archive.albums", "set", "sets" ]
+				},
+				"category_layout": {
+					"label": "Layout",
+					"type": "select",
+					"options": [
+						{ "label":"Latest", "value": "latest" },
+						{ "label":"List", "value": "list" },
+						{ "label":"Grid", "value": "grid" }
+					],
+					"value": "grid",
+					"scope": [ "category" ]
+				},
+				"contents_layout": {
+					"label": "Layout",
+					"type": "select",
+					"options": [
+						{ "label":"Latest", "value": "latest" },
+						{ "label":"List", "value": "list" },
+						{ "label":"Grid", "value": "grid" },
+						{ "label":"Slideshow", "value": "slideshow" }
+					],
+					"value": "grid",
+					"scoped_values": true,
+					"reload_preview": true,
+					"scope": [ "archive.contents", "contents", "favorites" ]
+				},
+				"essays_layout": {
+					"label": "Layout",
+					"type": "select",
+					"options": [
+						{ "label":"Latest", "value": "latest" },
+						{ "label":"List", "value": "list" },
+						{ "label":"Grid", "value": "grid" }
+					],
+					"value": "list",
+					"scoped_values": true,
+					"reload_preview": true,
+					"scope": [ "essays", "archive.essays" ]
+				},
+				"tag_layout": {
+					"label": "Layout",
+					"type": "select",
+					"options": [
+						{ "label":"Latest", "value": "latest" },
+						{ "label":"List", "value": "list" },
+						{ "label":"Grid", "value": "grid" }
+					],
+					"value": "grid",
+					"reload_preview": true,
+					"scope": [ "tag" ]
+				},
+				"timeline_layout": {
+					"label": "Layout",
+					"type": "select",
+					"options": [
+						{ "label":"Latest", "value": "latest" },
+						{ "label":"List", "value": "list" },
+						{ "label":"Grid", "value": "grid" }
+					],
+					"value": "latest",
+					"reload_preview": true,
+					"scope": [ "timeline" ]
+				},
+				"load_limit_contents": {
+					"label": "Items per page",
+					"type": "slider",
+					"min": 1,
+					"max": 80,
+					"step": 1,
+					"value": 20,
+					"dependencies": {
+	                    "evaluate": "any",
+	                    "conditions": [
+	                         {
+	                              "option": "contents_layout",
+	                              "equals": "grid"
+	                         },
+	                         {
+	                              "option": "contents_layout",
+	                              "equals": "list"
+	                         }
+	                    ]
+	               	},
+					"scope": [ "contents", "archive.contents", "favorites" ]
+				},
+				"article_type": {
+					"label": "Essay type",
+					"type": "select",
+					"options": [
+						{ "label": "Featured", "value": "feature" },
+						{ "label": "Full", "value": "full" }
+					],
+					"value": "full",
+					"scope": [ "essays", "archive.essays" ]
+				},
+				"load_limit_timeline": {
+					"label": "Events per page",
+					"type": "slider",
+					"min": 1,
+					"max": 80,
+					"step": 1,
+					"value": 10,
+					"dependencies": {
+	                    "evaluate": "any",
+	                    "conditions": [
+	                         {
+	                              "option": "timeline_layout",
+	                              "equals": "list"
+	                         },
+	                         {
+	                              "option": "timeline_layout",
+	                              "equals": "grid"
+	                         }
+	                    ]
+	               	},
+					"scope": [ "category", "tag", "timeline" ]
+				},
+				"load_limit_album": {
+					"label": "Items per page",
+					"type": "slider",
+					"min": 1,
+					"max": 80,
+					"step": 1,
+					"value": 10,
+					"dependencies": {
+	                    "evaluate": "any",
+	                    "conditions": [
+	                         {
+	                              "option": "album_layout",
+	                              "equals": "list"
+	                         },
+	                         {
+	                              "option": "album_layout",
+	                              "equals": "grid"
+	                         }
+	                    ]
+	               	},
+					"scope": [ "album" ]
+				},
+				"load_limit_essays": {
+					"label": "Essays per page",
+					"type": "slider",
+					"min": 1,
+					"max": 80,
+					"step": 1,
+					"value": 10,
+					"dependencies": {
+	                    "evaluate": "any",
+	                    "conditions": [
+	                         {
+	                              "option": "essays_layout",
+	                              "equals": "list"
+	                         },
+	                         {
+	                              "option": "essays_layout",
+	                              "equals": "grid"
+	                         }
+	                    ]
+	               	},
+					"scope": [ "essays", "archive.essays" ]
+				},
+				"article_measure_width": {
+					"label": "Article width",
+					"type": "slider",
+					"min": 50,
+					"max": 100,
+					"step": 1,
+					"suffix": "%",
+					"scoped_values": true,
+					"value": {
+						"archive.essays,essay,essays": 75,
+						"page": 60
+					},
+					"scope": [ "essays", "essay", "archive.essays", "page" ]
+				}
+			}
+		},
+		"Grid": {
+			"icon": "layout",
+			"settings": {
+				"grid_col_num": {
+					"label": "Desktop cols",
+					"type": "slider",
+					"min": 1,
+					"max": 8,
+					"step": 1,
+					"value": 5,
+					"reload_preview": true,
+					"scoped_values": true,
+					"value": {
+						"archive.essays,essays": 3,
+						"albums,set,sets": 3,
+						"album,archive.albums,archive.contents,category,contents,favorites,tag,timeline": 3
+					},
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "category", "contents", "essays", "favorites", "set", "sets", "tag", "timeline" ]
+				},
+				"grid_col_num_tablet": {
+					"label": "Tablet cols",
+					"type": "slider",
+					"min": 1,
+					"max": 4,
+					"step": 1,
+					"value": 2,
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "category", "contents", "essays", "favorites", "set", "sets", "tag", "timeline" ]
+				},
+				"grid_col_num_mob": {
+					"label": "Mobile cols",
+					"type": "slider",
+					"min": 1,
+					"max": 4,
+					"step": 1,
+					"value": 1,
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "category", "contents", "essays", "favorites", "set", "sets", "tag", "timeline" ]
+				},
+				"grid_col_spacing": {
+					"label": "Spacing",
+					"type": "slider",
+					"min": 0,
+					"max": 80,
+					"step": 1,
+					"suffix": "px",
+					"scoped_values": true,
+					"value": {
+						"archive.essays,essays": 40,
+						"album,albums,archive.albums,archive.contents,category,contents,favorites,set,sets,tag,timeline": 40
+					},
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "category", "contents", "essays", "favorites", "set", "sets", "tag", "timeline" ]
+				},
+				"grid_col_type": {
+					"label": "Variability",
+					"type": "select",
+					"options": [
+						{ "label": "None", "value": "none" },
+						{ "label": "Random", "value": "random" },
+						{ "label": "Odd", "value": "odd" },
+						{ "label": "Even", "value": "even" }
+					],
+					"value": "none",
+					"reload_preview": true,
+					"scoped_values": true,
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "category", "contents", "essays", "favorites", "set", "sets", "tag", "timeline" ]
+				},
+				"grid_col_var_amt": {
+					"label": "Amount",
+					"type": "slider",
+					"min": 0,
+					"max": 8,
+					"step": 0.2,
+					"value": 3,
+					"suffix": "%",
+					"dependencies": {
+	                    "evaluate": "all",
+	                    "conditions": [
+	                         {
+	                              "option": "grid_col_type",
+	                              "not": "none"
+	                         }
+	                    ]
+	               	},
+	               	"reload_preview": true,
+	               	"scoped_values": true,
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "category", "contents", "essays", "favorites", "set", "sets", "tag", "timeline" ]
+				}
+			}
+		},
+		"Typography": {
+			"icon": "type",
+			"settings": {
+				"Site title": {
+					"site_title_type": {
+						"label": "Type",
+						"type": "select",
+						"options": [
+							{ "label": "Text", "value": "text" },
+							{ "label": "Image", "value": "image" }
+						],
+						"value": "text"
+					},
+					"font_title": {
+						"label": "Typeface",
+						"type": "select",
+						"options": [
+							{ "label": "Alegreya", "value": "alegreya" },
+							{ "label": "Amatic", "value": "amatic" },
+							{ "label": "Arimo", "value": "arimo" },
+							{ "label": "Arvo", "value": "arvo" },
+							{ "label": "Bebas Neue", "value": "bebas_neue" },
+							{ "label": "Bevan", "value": "bevan" },
+							{ "label": "Bitter", "value": "bitter" },
+							{ "label": "Clicker Script", "value": "clicker" },
+							{ "label": "Disco", "value": "disco" },
+							{ "label": "Fira Sans", "value": "fira_sans" },
+							{ "label": "Fruktur", "value": "fruktur" },
+							{ "label": "Helvetica Neue", "value": "helvetica" },
+							{ "label": "Kavoon", "value": "kavoon" },
+							{ "label": "League Gothic", "value": "league_gothic" },
+							{ "label": "Lora", "value": "lora" },
+							{ "label": "Merriweather", "value": "merriweather" },
+							{ "label": "Merriweather Sans", "value": "merriweather_sans" },
+							{ "label": "Montserrat", "value": "montserrat" },
+							{ "label": "Open Sans", "value": "open_sans" },
+							{ "label": "Oranienbaum", "value": "oranienbaum" },
+							{ "label": "Oswald", "value": "oswald" },
+							{ "label": "Oswald Stencil", "value": "oswald_stencil" },
+							{ "label": "Oxygen", "value": "oxygen" },
+							{ "label": "Playfair", "value": "playfair" },
+							{ "label": "PT Sans", "value": "pt_sans" },
+							{ "label": "Quicksand", "value": "quicksand" },
+							{ "label": "Noto Sans", "value": "noto_sans" },
+							{ "label": "Roboto", "value": "roboto" },
+							{ "label": "Roboto Slab", "value": "roboto_slab" },
+							{ "label": "Sacramento", "value": "sacramento" },
+							{ "label": "Source Sans Pro", "value": "source_sans_pro" },
+							{ "label": "Source Serif Pro", "value": "source_serif_pro" },
+							{ "label": "St. Marie", "value": "stmarie" },
+							{ "label": "Sura", "value": "sura" },
+							{ "label": "Troika", "value": "troika" },
+							{ "label": "Varella Round", "value": "varella_round" },
+							{ "label": "Work Sans", "value": "work_sans" }
+						],
+						"value": "playfair",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "text"
+		                         }
+		                    ]
+		               	}
+					},
+					"site_title_size": {
+						"label": "Size",
+						"type": "slider",
+						"min": 0.5,
+						"max": 6,
+						"step": 0.05,
+						"value": 2.3,
+						"suffix": "em",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "text"
+		                         }
+		                    ]
+		               }
+					},
+					"site_title_case": {
+						"label": "Transform",
+						"type": "select",
+						"options": [
+							{ "label":"Uppercase", "value":"uppercase" },
+							{ "label":"Lowercase", "value":"lowercase" },
+							{ "label":"Capitalize", "value":"capitalize" },
+							{ "label":"None", "value":"none" }
+						],
+						"value": "uppercase",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "text"
+		                         }
+		                    ]
+		               }
+					},
+					"site_title_spacing": {
+						"label": "Letterspacing",
+						"type": "slider",
+						"min": 0,
+						"max": 50,
+						"step": 1,
+						"value": 4,
+						"suffix": "px",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "text"
+		                         }
+		                    ]
+		               }
+					},
+					"site_title_weight": {
+						"label": "Weight",
+						"type": "select",
+						"options": [
+							{ "label":"400", "value":"400" },
+							{ "label":"700", "value":"700" }
+						],
+						"value":"400",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "text"
+		                         }
+		                    ]
+		               }
+					},
+					"site_title_img_url": {
+						"label": "Image URL",
+						"type": "string",
+						"value": "",
+						"validation": {
+							"type": "url",
+							"allow_empty": true
+						},
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "image"
+		                         }
+		                    ]
+		               }
+					},
+					"site_title_img_scale": {
+						"label": "Regular width",
+						"type": "slider",
+						"min": 100,
+						"max": 500,
+						"step": 10,
+						"value": 300,
+						"suffix": "px",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "image"
+		                         }
+		                    ]
+		               	}
+		            },
+					"site_title_img_scale_mobile": {
+						"label": "Mobile width",
+						"type": "slider",
+						"min": 100,
+						"max": 500,
+						"step": 10,
+						"value": 160,
+						"suffix": "px",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "image"
+		                         }
+		                    ]
+		               	}
+		            },
+		            "site_title_margin_bot": {
+						"label": "Margin bottom",
+						"type": "slider",
+						"min": 0,
+						"max": 4,
+						"step": 0.05,
+						"value": 1.85,
+						"suffix": "em"
+					}
+				},
+				"Tagline": {
+					"show_tagline": {
+						"label": "Show tagline",
+						"type": "boolean",
+						"value": false,
+						"control_first": true,
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "site_title_type",
+		                              "equals": "text"
+		                         }
+		                    ]
+		               	}
+					},
+					"tagline_size": {
+						"label": "Size",
+						"type": "slider",
+						"min": 0.4,
+						"max": 2,
+						"step": 0.05,
+						"value": 0.9,
+						"suffix": "em",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "show_tagline",
+		                              "equals": true
+		                         }
+		                    ]
+		               	}
+					},
+					"tagline_spacing": {
+						"label": "Letterspacing",
+						"type": "slider",
+						"min": 0,
+						"max": 10,
+						"step": 0.5,
+						"value": 2,
+						"suffix": "px",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "show_tagline",
+		                              "equals": true
+		                         }
+		                    ]
+		               	}
+					},
+					"tagline_transform": {
+						"label": "Case",
+						"type": "select",
+						"options": [
+							{ "label":"Uppercase", "value":"uppercase" },
+							{ "label":"Lowercase", "value":"lowercase" },
+							{ "label":"Capitalize", "value":"capitalize" },
+							{ "label":"Normal", "value":"none" }
+						],
+						"value": "uppercase",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "show_tagline",
+		                              "equals": true
+		                         }
+		                    ]
+		               	}
+					}
+				},
+				"Headers": {
+					"font_headers": {
+						"label": "Typeface",
+						"type": "select",
+						"options": [
+							{ "label": "Alegreya", "value": "alegreya" },
+							{ "label": "Arimo", "value": "arimo" },
+							{ "label": "Arvo", "value": "arvo" },
+							{ "label": "Bebas Neue", "value": "bebas_neue" },
+							{ "label": "Fira Sans", "value": "fira_sans" },
+							{ "label": "Helvetica Neue", "value": "helvetica" },
+							{ "label": "Lora", "value": "lora" },
+							{ "label": "Merriweather", "value": "merriweather" },
+							{ "label": "Merriweather Sans", "value": "merriweather_sans" },
+							{ "label": "Montserrat", "value": "montserrat" },
+							{ "label": "Noto Sans", "value": "noto_sans" },
+							{ "label": "Open Sans", "value": "open_sans" },
+							{ "label": "Oxygen", "value": "oxygen" },
+							{ "label": "PT Sans", "value": "pt_sans" },
+							{ "label": "Quicksand", "value": "quicksand" },
+							{ "label": "Roboto", "value": "roboto" },
+							{ "label": "Source Sans Pro", "value": "source_sans_pro" },
+							{ "label": "Source Serif Pro", "value": "source_serif_pro" },
+							{ "label": "Varella Round", "value": "varella_round" },
+							{ "label": "Work Sans", "value": "work_sans" }
+						],
+						"value": "open_sans"
+					},
+					"content_title_ls": {
+						"label": "Letterspacing",
+						"type": "slider",
+						"min": 0,
+						"max": 10,
+						"step": 0.5,
+						"value": 2,
+						"suffix": "px"
+					},
+					"content_title_transform": {
+						"label": "Case",
+						"type": "select",
+						"options": [
+							{ "label":"Uppercase", "value":"uppercase" },
+							{ "label":"Lowercase", "value":"lowercase" },
+							{ "label":"Capitalize", "value":"capitalize" },
+							{ "label":"Normal", "value":"none" }
+						],
+						"value": "uppercase"
+					},
+					"content_title_weight": {
+						"label": "Weight",
+						"type": "select",
+						"options": [
+							{ "label":"Normal", "value":"normal" },
+							{ "label":"Bold", "value":"bold" }
+						],
+						"value": "normal"
+					}
+				},
+				"Body": {
+					"font_body": {
+						"label": "Typeface",
+						"type": "select",
+						"options": [
+							{ "label": "Alegreya", "value": "alegreya" },
+							{ "label": "Arimo", "value": "arimo" },
+							{ "label": "Fira Sans", "value": "fira_sans" },
+							{ "label": "Georgia", "value": "georgia" },
+							{ "label": "Helvetica Neue", "value": "helvetica" },
+							{ "label": "Lora", "value": "lora" },
+							{ "label": "Merriweather", "value": "merriweather" },
+							{ "label": "Merriweather Sans", "value": "merriweather_sans" },
+							{ "label": "Noto Sans", "value": "noto_sans" },
+							{ "label": "Open Sans", "value": "open_sans" },
+							{ "label": "Oxygen", "value": "oxygen" },
+							{ "label": "PT Sans", "value": "pt_sans" },
+							{ "label": "Roboto", "value": "roboto" },
+							{ "label": "Source Sans Pro", "value": "source_sans_pro" },
+							{ "label": "Source Serif Pro", "value": "source_serif_pro" },
+							{ "label": "Work Sans", "value": "work_sans" }
+						],
+						"value": "open_sans"
+					},
+					"body_font_size": {
+						"label": "Size",
+						"type": "slider",
+						"min": 1,
+						"max": 2,
+						"step": 0.05,
+						"value": 1.4,
+						"suffix": "em"
+					},
+					"body_font_lh": {
+						"label": "Line height",
+						"type": "slider",
+						"min": 1,
+						"max": 2.5,
+						"step": 0.05,
+						"value": 1.85
+					},
+					"text_cap_width": {
+						"label": "Inset text width",
+						"type": "slider",
+						"min": 30,
+						"max": 100,
+						"value": 80,
+						"step":5,
+						"suffix":"%"
+					}
+				}
+			}
+		},
+		"Navigation": {
+			"icon": "nav",
+			"settings": {
+				"mob_nav_display": {
+					"label": "Primary type",
+					"type": "select",
+					"options": [
+						{ "label": "Normal", "value": "norm" },
+						{ "label": "Minimal", "value": "min" }
+					],
+					"value": "norm"
+				},
+				"font_nav": {
+					"label": "Typeface",
+					"type": "select",
+					"options": [
+						{ "label": "Alegreya", "value": "alegreya" },
+						{ "label": "Arimo", "value": "arimo" },
+						{ "label": "Arvo", "value": "arvo" },
+						{ "label": "Fira Sans", "value": "fira_sans" },
+						{ "label": "Helvetica Neue", "value": "helvetica" },
+						{ "label": "Lora", "value": "lora" },
+						{ "label": "Merriweather", "value": "merriweather" },
+						{ "label": "Merriweather Sans", "value": "merriweather_sans" },
+						{ "label": "Montserrat", "value": "montserrat" },
+						{ "label": "Noto Sans", "value": "noto_sans" },
+						{ "label": "Open Sans", "value": "open_sans" },
+						{ "label": "Oxygen", "value": "oxygen" },
+						{ "label": "PT Sans", "value": "pt_sans" },
+						{ "label": "Quicksand", "value": "quicksand" },
+						{ "label": "Roboto", "value": "roboto" },
+						{ "label": "Source Sans Pro", "value": "source_sans_pro" },
+						{ "label": "Source Serif Pro", "value": "source_serif_pro" },
+						{ "label": "Varella Round", "value": "varella_round" },
+						{ "label": "Work Sans", "value": "work_sans" }
+					],
+					"value": "open_sans"
+				},
+				"nav_link_size": {
+					"label": "Size",
+					"type": "slider",
+					"min": 0.5,
+					"max": 2,
+					"step": 0.05,
+					"value": 1.2,
+					"suffix": "em"
+				},
+				"nav_ls": {
+					"label": "Letterspacing",
+					"type": "slider",
+					"min": 0,
+					"max": 10,
+					"step": 0.5,
+					"value": 1.5,
+					"suffix": "px"
+				},
+				"nav_transform": {
+					"label": "Case",
+					"type": "select",
+					"options": [
+						{ "label":"Uppercase", "value":"uppercase" },
+						{ "label":"Lowercase", "value":"lowercase" },
+						{ "label":"Capitalize", "value":"capitalize" },
+						{ "label":"Normal", "value":"none" }
+					],
+					"value": "uppercase"
+				},
+				"nav_spacing": {
+					"label": "Gutter",
+					"type": "slider",
+					"min": 0,
+					"max": 50,
+					"step": 1,
+					"value": 8,
+					"suffix": "px"
+				},
+				"nav_margin_bot": {
+					"label": "Margin bottom",
+					"type": "slider",
+					"min": 0,
+					"max": 8,
+					"step": 0.05,
+					"value": 1.85,
+					"suffix": "em"
+				},
+				"show_search": {
+					"label": "Show search",
+					"type": "boolean",
+					"value": false,
+					"control_first": true
+				},
+				"Mobile": {
+					"mob_nav_layout": {
+						"label": "Align",
+						"type": "select",
+						"options": [
+							{ "label": "Horizontal", "value": "horiz" },
+							{ "label": "Vertical", "value": "vert" }
+						],
+						"value": "vert"
+					},
+					"mob_nav_layout_desktop": {
+						"label": "Align desktop",
+						"type": "select",
+						"options": [
+							{ "label": "Horizontal", "value": "horiz" },
+							{ "label": "Vertical", "value": "vert" }
+						],
+						"value": "horiz",
+						"dependencies": {
+		                    "evaluate": "all",
+		                    "conditions": [
+		                         {
+		                              "option": "mob_nav_display",
+		                              "equals": "min"
+		                         }
+		                    ]
+		               	}
+					}
+				}
+			}
+		},
+		"Images": {
+			"icon":"img",
+			"settings": {
+				"show_content_load_spin": {
+					"label": "Show loading spinner",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"reload_preview": true
+				},
+				"Options": {
+					"collapse": true,
+					"spin_border": {
+						"label": "Thickness",
+						"type": "slider",
+						"min": 1,
+						"max": 8,
+						"value": 1,
+						"step": 1,
+						"suffix": "px"
+					},
+					"spin_size": {
+						"label": "Size",
+						"type": "slider",
+						"min": 10,
+						"max": 60,
+						"value": 20,
+						"step": 1,
+						"suffix": "px"
+					},
+					"spin_speed": {
+						"label": "Speed",
+						"type": "slider",
+						"min": 0.1,
+						"max": 2,
+						"value": 0.7,
+						"step": 0.1,
+						"suffix": "sec"
+					},
+					"spin_color_back": {
+						"label": "Back color",
+						"type": "color",
+						"with_alpha": true
+					},
+					"spin_color_front": {
+						"label": "Front color",
+						"type": "color",
+						"with_alpha": true
+					}
+				},
+				"img_scale": {
+					"label": "Crop",
+					"type": "select",
+					"options": [
+						{ "label": "None", "value": "none" },
+						{ "label": "Uniform", "value": "uniform" }
+					],
+					"value": "none",
+					"reload_preview": true,
+					"scope": [ "albums", "archive.albums", "sets", "set" ]
+				},
+		        "link_lbox": {
+					"label": "Link images to lightbox",
+					"type": "boolean",
+					"value": true,
+					"scoped_values": true,
+					"control_first": true,
+					"scope": [ "album", "archive.contents", "category", "contents", "favorites", "tag", "timeline" ]
+				},
+		        "show_vid_play": {
+					"label": "Show duration on videos",
+					"type": "boolean",
+					"values": {
+						"true": "visible",
+						"false": "hidden"
+					},
+					"value": "visible",
+					"control_first": true,
+					"dependencies": {
+						"evaluate": "any",
+						"conditions": [
+							{
+								"option": "album_layout",
+								"equals": "grid"
+							},
+							{
+								"option": "contents_layout",
+								"equals": "grid"
+							}
+						]
+					},
+		        	"scope": [ "album", "contents", "favorites", "archive.contents" ]
+				},
+				"thumb_ratio": {
+		            "label": "Aspect ratio",
+		            "type": "select",
+		            "options": [
+		              { "label": "1:1", "value": "1:1" },
+		              { "label": "2:1", "value": "2:1" },
+		              { "label": "3:2", "value": "3:2" },
+		              { "label": "4:3", "value": "4:3" },
+		              { "label": "16:9", "value": "16:9" }
+		            ],
+		            "value": "3:2",
+		            "dependencies": {
+	                    "evaluate": "all",
+	                    "conditions": [
+	                    	{
+	                              "option": "img_scale",
+	                              "equals": "uniform"
+	                        }
+	                    ]
+	                },
+					"scope": [ "albums", "archive.albums", "sets", "set" ]
+		        },
+		        "img_scale_content": {
+					"label": "Crop",
+					"type": "select",
+					"options": [
+						{ "label": "None", "value": "none" },
+						{ "label": "Uniform", "value": "uniform" }
+					],
+					"value": "none",
+					"reload_preview": true,
+					"scope": [ "contents", "archive.contents", "favorites", "album" ]
+				},
+		        "thumb_ratio_content": {
+		            "label": "Aspect ratio",
+		            "type": "select",
+		            "options": [
+		              { "label": "1:1", "value": "1:1" },
+		              { "label": "2:1", "value": "2:1" },
+		              { "label": "3:2", "value": "3:2" },
+		              { "label": "4:3", "value": "4:3" },
+		              { "label": "16:9", "value": "16:9" }
+		            ],
+		            "value": "1:1",
+		            "dependencies": {
+	                    "evaluate": "all",
+	                    "conditions": [
+	                    	{
+	                              "option": "img_scale_content",
+	                              "equals": "uniform"
+	                        }
+	                    ]
+	                },
+					"scope": [ "contents", "archive.contents", "favorites", "album" ]
+		        }
+			}
+		},
+		"Text": {
+			"icon": "type",
+			"settings": {
+				"show_context_link": {
+					"label": "Show context link in pagination",
+					"type": "boolean",
+					"control_first": true,
+					"values": {
+						"true": "inline",
+						"false": "none"
+					},
+					"value": "inline",
+					"scope": [ "content" ]
+				},
+				"show_timestamp": {
+					"label": "Show published dates",
+					"type": "boolean",
+					"control_first": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"value": {
+						"essay": true,
+						"archive.essays,essays": true,
+						"albums,archive.albums,set,sets": false,
+						"album,archive.contents,content,contents": true,
+						"index": false,
+						"favorites": false,
+						"featured_albums": true
+					},
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "content", "contents", "essay", "essays", "favorites", "featured_albums", "index", "set", "sets" ]
+				},
+				"show_title": {
+					"label": "Show titles",
+					"type": "boolean",
+					"control_first": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"value": {
+						"essay": true,
+						"archive.essays,essays": true,
+						"albums,archive.albums,set,sets": true,
+						"album": true,
+						"archive.contents,content,contents,favorites": true,
+						"index": false,
+						"featured_albums": true
+					},
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "content", "contents", "essay", "essays", "favorites", "featured_albums", "index", "set", "sets" ]
+				},
+				"show_caption": {
+					"label": "Show captions",
+					"type": "boolean",
+					"control_first": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"value": {
+						"essay": true,
+						"archive.essays,essays": true,
+						"albums,archive.albums,set,sets": true,
+						"album": true,
+						"archive.contents,content,contents,favorites": true,
+						"index": false,
+						"featured_albums": true
+					},
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "content", "contents", "essays", "favorites", "featured_albums", "index", "set", "sets" ]
+				},
+				"show_albums_link": {
+					"label": "Show albums link",
+					"type": "boolean",
+					"control_first": true,
+					"value": {
+						"archive.contents": false,
+						"contents": false,
+						"favorites": true
+					},
+					"scoped_values": true,
+					"scope": [ "archive.contents", "contents", "favorites" ]
+				},
+				"show_tags": {
+					"label": "Show tags",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"value": {
+						"archive.essays,essays": false,
+						"essay": true,
+						"albums,archive.albums,set,sets": false,
+						"album": false,
+						"content": true,
+						"archive.contents,contents,favorites": false
+					},
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "content", "contents", "essay", "essays", "favorites", "set", "sets" ]
+				},
+				"show_cats": {
+					"label": "Show categories",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"value": {
+						"archive.essays,essays": false,
+						"essay": true,
+						"albums,archive.albums,set,sets": false,
+						"album": false,
+						"content": true,
+						"archive.contents,contents,favorites": false
+					},
+					"scope": [ "archive.albums", "archive.contents", "archive.essays", "album", "albums", "content", "contents", "essay", "essays", "favorites", "set", "sets" ]
+				},
+				"show_exif": {
+					"label": "Show EXIF",
+					"type": "boolean",
+					"value": false,
+					"control_first": true,
+					"scoped_values": true,
+					"out_of_scope_value": false,
+					"scope": [ "album", "content", "favorites", "index" ]
+				},
+				"show_rating": {
+					"label": "Show rating",
+					"note": "Requires the Rating plugin",
+					"note_align": "left",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scoped_values": true,
+					"out_of_scope_value": true,
+					"scope": [ "album", "content", "contents", "favorites" ]
+				},
+				"show_content_source": {
+					"label": "Show imported items source link",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scope": [ "content" ]
+				},
+				"show_geo": {
+					"label": "Show geolocation link",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scope": [ "content" ]
+				},
+				"show_vis_msg": {
+					"label": "Show unlisted message",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scoped_values": true,
+					"scope": [ "album", "set", "content" ]
+				},
+				"unlisted_msg": {
+					"label": "Message",
+					"type": "string",
+					"value": "This page is unlisted. Please don't share.",
+					"scope": [ "album", "set", "content" ],
+					"dependencies": {
+						"evaluate": "all",
+						"conditions": [
+							{
+								"option": "show_vis_msg",
+								"equals": "true"
+							}
+						]
+					}
+				},
+				"page_text_align": {
+					"label": "Text align",
+					"type": "select",
+					"options": [
+						{ "label": "Center", "value": "center" },
+						{ "label": "Left", "value": "left" },
+						{ "label": "Right", "value": "right" }
+					],
+					"value": "center",
+					"scope": [ "page" ]
+				},
+				"essay_text_align": {
+					"label": "Text align",
+					"type": "select",
+					"options": [
+						{ "label": "Center", "value": "center" },
+						{ "label": "Left", "value": "left" },
+						{ "label": "Right", "value": "right" }
+					],
+					"value": "center",
+					"scope": [ "archive.essays", "essays", "essay" ]
+				}
+			}
+		},
+		"Footer": {
+			"icon": "layout",
+			"settings": {
+				"show_footer": {
+					"label": "Show footer",
+					"type": "boolean",
+					"control_first": true,
+					"reload_preview": true,
+					"values": {
+						"true": "block",
+						"false": "none"
+					},
+					"value": "block"
+				},
+				"footer_text": {
+					"label": "Text",
+					"type": "string",
+					"value": "",
+					"dependencies": {
+						"evaluate": "all",
+						"conditions": [
+							{
+								"option": "show_footer",
+								"equals": true
+							}
+						]
+					}
+				}
+			}
+		},
+		"Lightbox": {
+			"icon": "lbox",
+			"settings": {
+				"lbox_share": {
+					"label": "Show share button",
+					"type": "boolean",
+					"values": {
+						"true": "block",
+						"false": "none"
+					},
+					"value": "block",
+					"control_first": true
+				},
+				"lbox_style": {
+					"type": "select",
+					"label": "Style",
+					"options": [
+						{ "label": "White", "value": "white" },
+						{ "label": "Black", "value": "black" }
+					],
+					"value": "black"
+				},
+				"lbox_max_width": {
+					"label": "Max width",
+					"type": "slider",
+					"min": 800,
+					"max": 2048,
+					"step": 8,
+					"value": 2048,
+					"suffix": "px",
+					"reload_preview": true,
+					"note": "Reduce for smaller images"
+				}
+			}
+		},
+		"Social": {
+			"icon":"social",
+			"settings": {
+				"social_bttns_show_one": {
+					"label": "Show content share buttons",
+					"type": "boolean",
+					"value": true,
+					"control_first": true
+				},
+				"social_bttns_show_two": {
+					"label": "Show like and tweet buttons",
+					"type": "boolean",
+					"value": false,
+					"control_first": true
+				},
+				"fb_href": {
+					"label": "Like link",
+					"type": "select",
+					"options": [
+						{ "label": "Page", "value": "page" },
+						{ "label": "Site", "value": "site" },
+						{ "label": "Facebook page", "value": "fbpage" }
+					],
+					"value": "page",
+					"dependencies": {
+						"evaluate": "all",
+						"conditions": [
+							{
+								"option": "social_bttns_show_two",
+								"equals": true
+							}
+						]
+					}
+				}
+			}
+		},
+		"Color": {
+			"icon": "color",
+			"settings": {
+				"background_color": {
+					"label": "Body background",
+					"type": "color",
+					"control_first": true
+				},
+				"body_color": {
+					"label": "Body text",
+					"type": "color",
+					"control_first": true
+				},
+				"header_color": {
+					"label": "Headers",
+					"type": "color",
+					"control_first": true
+				},
+				"link_hover_color": {
+					"label": "Links hover",
+					"type": "color",
+					"control_first": true
+				},
+				"current_color": {
+					"label": "Navigation current link",
+					"type": "color",
+					"control_first": true
+				},
+				"line_color": {
+					"label": "Divider line color",
+					"type": "color",
+					"control_first": true
+				},
+				"mob_bg_color": {
+					"label": "Mobile menu background",
+					"type": "color",
+					"control_first": true
+				}
+			}
+		},
+		"Discussions": {
+			"icon":"discuss",
+			"settings": {
+				"show_disc_essay": {
+					"label": "Show essay discussions",
+					"note": "Requires the Disqus plugin",
+					"note_align": "left",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"scope": [ "essay" ]
+				},
+				"show_disc_content": {
+					"label": "Show content discussions",
+					"note": "Requires the Disqus plugin",
+					"note_align": "left",
+					"type": "boolean",
+					"value": false,
+					"control_first": true,
+					"scope": [ "content" ]
+				},
+				"show_disc_essay_count": {
+					"label": "Show comment count",
+					"note": "Requires the Disqus plugin",
+					"note_align": "left",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"dependencies": {
+						"evaluate": "all",
+						"conditions": [
+							{
+								"option": "essays_layout",
+								"not": "grid"
+							}
+						]
+					},
+					"scope": [ "archive.essays", "essays" ]
+				},
+				"show_disc_content_count": {
+					"label": "Show comment count",
+					"note": "Requires the Disqus plugin",
+					"note_align": "left",
+					"type": "boolean",
+					"value": true,
+					"control_first": true,
+					"dependencies": {
+						"evaluate": "any",
+						"conditions": [
+							{
+								"option": "contents_layout",
+								"equals": "list"
+							},
+							{
+								"option": "contents_layout",
+								"equals": "latest"
+							}
+						]
+					},
+					"scope": [ "archive.contents", "contents", "favorites" ]
+				}
+			}
+		}
+	}
+}

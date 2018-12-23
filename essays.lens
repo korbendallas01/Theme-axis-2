@@ -1,0 +1,112 @@
+<koken:include file="layouts/header.html" />
+
+<koken:if data="{{ settings.essays_layout }}" equals="grid">
+
+	<!-- grid -->
+
+	<koken:load infinite="true" limit="{{ settings.load_limit_essays }}">
+
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+			<meta property="og:title" content="{{ labels.essay.plural }}" />
+			<meta property="og:type" content="blog" />
+			<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		</koken:head>
+
+		<koken:if true="settings.show_page_title">
+			<header class="page">
+				<div id="page-title">
+					<h1>{{ language.essays }}</h1>
+				</div>
+				<koken:if true="settings.show_page_line">
+				<hr>
+				</koken:if>
+			</header>
+		</koken:if>
+
+		<koken:include file="layouts/essays-grid.html" />
+
+		<koken:include file="layouts/infinite-msg.html" />
+
+	<koken:else>
+
+		<koken:note>
+			No essays found. Create some in Text.
+		</koken:note>
+
+	</koken:load>
+
+</koken:if>
+
+<koken:if data="{{ settings.essays_layout }}" equals="list">
+
+	<!-- list -->
+
+	<koken:load limit="{{ settings.load_limit_essays }}">
+
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+			<meta property="og:title" content="{{ labels.essay.plural }}" />
+			<meta property="og:type" content="blog" />
+			<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		</koken:head>
+
+		<koken:if true="settings.show_page_title">
+			<header class="page measure_editable">
+				<div id="page-title">
+					<h1>{{ language.essays }}</h1>
+				</div>
+				<koken:if true="settings.show_page_line">
+				<hr>
+				</koken:if>
+			</header>
+		</koken:if>
+
+		<koken:include file="layouts/essays-list.html" />
+
+		<koken:include file="layouts/pagination-footer.html" />
+
+	</koken:load>
+
+</koken:if>
+
+<koken:if data="{{ settings.essays_layout }}" equals="latest">
+
+	<!-- latest -->
+
+	<koken:load limit="1">
+
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+			<meta property="og:title" content="{{ labels.essay.plural }}" />
+			<meta property="og:type" content="blog" />
+			<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		</koken:head>
+
+		<koken:if true="settings.show_page_title">
+			<header class="page measure_editable">
+				<div id="page-title">
+					<h1>{{ language.essays }}</h1>
+				</div>
+				<koken:if true="settings.show_page_line">
+					<hr>
+				</koken:if>
+			</header>
+		</koken:if>
+
+		<koken:include file="layouts/pagination-head-essays.html" />
+
+		<koken:include file="layouts/essays-list.html" />
+
+		<koken:include file="layouts/pagination-footer.html" />
+
+	</koken:load>
+
+</koken:if>
+
+<koken:include file="layouts/like-tweet.html" />
+
+<koken:include file="layouts/footer.html" />

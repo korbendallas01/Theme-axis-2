@@ -1,0 +1,83 @@
+<koken:include file="layouts/header.html" />
+
+<koken:load>
+	<koken:head>
+      <meta property="og:site_name" content="{{ site.title }}" />
+      <meta property="og:description" content="{{ site.description strip_html='true' }}" />
+      <meta property="og:title" content="{{ labels.timeline.plural }}" />
+      <meta property="og:type" content="blog" />
+      <meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+    </koken:head>
+</koken:load>
+
+<koken:if data="{{ settings.tag_layout }}" equals="latest">
+
+	<!-- latest -->
+
+	<koken:load limit="1">
+
+	    <koken:if true="settings.show_page_title">
+
+			<koken:include file="layouts/page_title_bcrumbs.html" />
+
+		</koken:if>
+
+	<koken:include file="layouts/timeline-latest.html" />
+
+	<koken:else>
+
+		{{ language.no_items_were_found }}
+
+	</koken:load>
+
+</koken:if>
+
+<koken:if data="{{ settings.tag_layout }}" equals="list">
+
+	<!-- list -->
+
+	<koken:load limit="{{ settings.load_limit_timeline }}">
+
+		<koken:if true="settings.show_page_title">
+
+			<koken:include file="layouts/page_title_bcrumbs.html" />
+
+		</koken:if>
+
+		<koken:include file="layouts/timeline-list.html" />
+
+	<koken:else>
+
+		{{ language.no_items_were_found }}
+
+	</koken:load>
+
+</koken:if>
+
+<koken:if data="{{ settings.tag_layout }}" equals="grid">
+
+	<!-- grid -->
+
+	<koken:load infinite="true" limit="{{ settings.load_limit_timeline }}">
+
+		<koken:if true="settings.show_page_title">
+
+			<koken:include file="layouts/page_title_bcrumbs.html" />
+
+		</koken:if>
+
+		<koken:include file="layouts/timeline-grid.html" />
+
+		<koken:include file="layouts/infinite-msg.html" />
+
+	<koken:else>
+
+		{{ language.no_items_were_found }}
+
+	</koken:load>
+
+</koken:if>
+
+<koken:include file="layouts/like-tweet.html" />
+
+<koken:include file="layouts/footer.html" />

@@ -1,0 +1,15 @@
+<div id="infinite_load_msg">
+	<hr>
+	<h4>{{ language.loading_more }}</h4>
+	<hr>
+</div>
+
+<script>
+	$(window).on('k-infinite-loading', function() {
+		$('#infinite_load_msg').show();
+	});
+
+	$(window).on('k-infinite-loaded', function() {
+		$('#infinite_load_msg').hide();
+	});
+</script>

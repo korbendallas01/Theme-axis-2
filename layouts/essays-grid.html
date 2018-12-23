@@ -1,0 +1,55 @@
+<div class="kpgrid">
+
+	<div class="kpgrid_wrap">
+
+		<div class="kpgrid_content">
+
+			<koken:loop>
+
+				<figure id="essay_{{ essay.id }}" class="kpgriditem block scrollstop">
+
+					<koken:featured_image>
+
+						<koken:link class="figimg">
+
+							<koken:img lazy="true" class="height_limit" />
+
+							<koken:if true="settings.show_content_load_spin">
+								<div class="spinner_pos"><div class="spinner"></div></div>
+							</koken:if>
+
+						</koken:link>
+
+					</koken:featured_image>
+
+					<figcaption>
+
+						<koken:if true="settings.show_timestamp"><koken:time /></koken:if>
+
+						<koken:if true="settings.show_title">
+
+							<h2>
+								<koken:link>
+									{{ essay.title }}
+								</koken:link>
+							</h2>
+
+						</koken:if>
+
+						<koken:if true="settings.show_caption"><p class="caption">{{ essay.excerpt }}</p></koken:if>
+
+						<koken:include file="layouts/tags-cats.html" />
+
+					</figcaption>
+
+				</figure>
+
+			</koken:loop>
+
+		</div>
+
+	</div>
+
+</div>
+
+<koken:include file="js/pillar_axis.html" />

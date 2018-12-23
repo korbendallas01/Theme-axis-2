@@ -1,0 +1,133 @@
+<koken:include file="layouts/header.html" />
+
+<koken:load limit="4">
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ labels.content.plural }}" />
+		<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+		<meta property="og:type" content="website" />
+		<koken:first>
+		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		</koken:first>
+		<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		<koken:not empty="profile.twitter">
+		<meta name="twitter:card" content="gallery" />
+		<meta name="twitter:site" content="@{{ profile.twitter }}" />
+		<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+		<koken:loop>
+		<meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
+		</koken:loop>
+		</koken:not>
+	</koken:head>
+</koken:load>
+
+<koken:if data="{{ settings.contents_layout }}" equals="grid">
+
+	<!-- grid -->
+
+	<koken:load infinite="true" limit="{{ settings.load_limit_contents }}">
+
+		<koken:if true="settings.show_page_title">
+
+			<koken:include file="layouts/page_title_bcrumbs.html" />
+
+		</koken:if>
+
+		<koken:include file="layouts/contents-grid.html" />
+
+		<koken:include file="layouts/infinite-msg.html" />
+
+	<koken:else>
+
+		<koken:note>
+			No images or videos found. Import some to the Library.
+		</koken:note>
+
+	</koken:load>
+
+</koken:if>
+
+<koken:if data="{{ settings.contents_layout }}" equals="list">
+
+	<!-- list -->
+
+	<koken:load limit="{{ settings.load_limit_contents }}">
+
+		<koken:if true="settings.show_page_title">
+
+			<koken:include file="layouts/page_title_bcrumbs.html" />
+
+		</koken:if>
+
+		<koken:include file="layouts/contents-list.html" />
+
+		<koken:include file="layouts/pagination-footer.html" />
+
+		<koken:else>
+
+			<koken:note>
+				No images or videos found. Import some to the Library.
+			</koken:note>
+
+	</koken:load>
+
+</koken:if>
+
+<koken:if data="{{ settings.contents_layout }}" equals="latest">
+
+	<!-- latest -->
+
+	<koken:load limit="1">
+
+		<koken:if true="settings.show_page_title">
+
+			<koken:include file="layouts/page_title_bcrumbs.html" />
+
+		</koken:if>
+
+		<koken:include file="layouts/pagination-head-contents.html" />
+
+		<koken:include file="layouts/contents-latest.html" />
+
+		<koken:include file="layouts/pagination-footer.html" />
+
+		<koken:else>
+
+			<koken:note>
+				No images or videos found. Import some to the Library.
+			</koken:note>
+
+	</koken:load>
+
+</koken:if>
+
+<koken:if data="{{ settings.contents_layout }}" equals="slideshow">
+
+	<!-- slideshow -->
+
+	<koken:load>
+
+		<koken:if true="settings.show_page_title">
+
+			<koken:include file="layouts/page_title_bcrumbs.html" />
+
+		</koken:if>
+
+		<koken:include file="layouts/contents-slideshow.html" />
+
+	<koken:else>
+
+		<koken:note>
+			No images or videos found. Import some to the Library.
+		</koken:note>
+
+	</koken:load>
+
+</koken:if>
+
+
+<koken:include file="layouts/like-tweet.html" />
+
+<koken:include file="layouts/footer.html" />

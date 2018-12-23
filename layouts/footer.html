@@ -1,0 +1,25 @@
+		<a id="backtop" class="arrow_font backtop_link" href="#top" data-bind-to-key="up" title="Back to top"><i class="kicon-angle-up"></i></a>
+
+		</main>
+
+<koken:not true="pjax">
+
+		<footer class="bot">
+
+			<nav><koken:navigation group="footer" /></nav>
+
+			<p>{{ settings.footer_text }}</p>
+
+			<span class="copyright">{{ site.copyright }}</span>
+
+		</footer>
+
+		<!-- note: try to make this dynamic reading mobile nav height -->
+		<koken:keyboard_scroll element=".scrollstop" offset="Axis.keyscrollOffset" />
+
+	</div>	<!-- close #container -->
+
+</body>
+
+</html>
+</koken:not>

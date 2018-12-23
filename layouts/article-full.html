@@ -1,0 +1,13 @@
+<header>
+
+     <koken:if true="settings.show_timestamp"><koken:time /></koken:if>
+
+     <koken:if true="settings.show_title"><h1><koken:link title="{{ language.view_title collate='essay.title' }}">{{ essay.title }}</koken:link></h1></koken:if>
+
+</header>
+
+<div class="article_content">
+
+     {{ essay.content }}
+
+</div>

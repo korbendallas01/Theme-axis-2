@@ -1,0 +1,76 @@
+<koken:include file="layouts/header.html" />
+
+<koken:load>
+
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ page.title strip_html='true' }}" />
+		<meta property="og:description" content="{{ page.excerpt strip_html='true' }}" />
+		<meta property="og:url" content="{{ page.url }}" />
+		<meta property="og:type" content="website" />
+		<koken:featured_image>
+		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		</koken:featured_image>
+		<meta name="medium" content="article" />
+		<koken:not empty="profile.twitter">
+			<koken:featured_image>
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@{{ profile.twitter }}" />
+			<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			<meta name="twitter:image" content="{{ content.presets.medium_large.url }}" />
+			</koken:featured_image>
+		</koken:not>
+	</koken:head>
+
+	<header class="page" class="measure_editable">
+
+		<div id="page-title">
+
+			<h1>{{ page.title }}</h1>
+
+		</div>
+
+	</header>
+
+	<article class="measure_editable">
+
+		<div class="article_content">
+
+			{{ page.content }}
+
+		</div>
+
+		<footer>
+
+    		<div class="meta">
+
+			     <koken:topics>
+			          <div id="essay_topics">
+			               <p class="meta nob">
+			                    {{ language.see_more }}
+			               </p>
+			               <koken:loop separator=", ">
+			                    <h4 class="inline">
+			                         <koken:link title="View {{ album.title }}">
+			                              {{ album.title }}
+			                         </koken:link>
+			                    </h4>
+			               </koken:loop>
+			          </div>
+			     </koken:topics>
+
+			</div>
+
+		</footer>
+
+	</article>
+
+	<koken:include file="layouts/slideshow-spinner.html" />
+
+	<koken:include file="layouts/like-tweet.html" />
+
+</koken:load>
+
+<koken:include file="layouts/footer.html" />

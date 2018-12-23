@@ -1,0 +1,26 @@
+<koken:featured_image>
+	<figure class="block">
+		<koken:link title="{{ essay.title }}" class="figimg">
+			<koken:if true="settings.show_content_load_spin">
+				<div class="spinner_pos"><div class="spinner"></div></div>
+			</koken:if>
+			<koken:img lazy="true" class="height_limit" />
+		</koken:link>
+	</figure>
+</koken:featured_image>
+
+<header>
+
+     <koken:if true="settings.show_timestamp"><koken:time /></koken:if>
+
+     <koken:if true="settings.show_title"><h1><koken:link title="View {{ essay.title }}">{{ essay.title }}</koken:link></h1></koken:if>
+
+</header>
+
+<koken:if true="settings.show_caption"><p class="caption">{{ essay.excerpt }}</p></koken:if>
+
+<koken:include file="layouts/tags-cats.html" />
+
+<h6>
+	<koken:link class="pag">{{ language.more }}</koken:link>
+</h6>

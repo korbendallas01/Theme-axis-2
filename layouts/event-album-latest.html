@@ -1,0 +1,37 @@
+<koken:event_album>
+
+	<figure class="block unit scrollstop">
+
+		<div class="slideshow">
+			<koken:pulse group="time_album_latest" can_link_to_album="true" data="album.covers" link_to="advance" size="expand" transition_type="fade" transition_duration="1" />
+		</div>
+
+		<figcaption>
+
+			<h2>
+				<koken:link title="{{ album.title }}">
+					{{ album.title }}
+				</koken:link>
+			</h2>
+
+			<p class="cap_width">
+
+				{{ album.summary | album.description }}
+
+			</p>
+
+		</figcaption>
+
+		<h6>
+
+			<koken:link title="{{ album.title }}" class="pag lh_push_plus">
+
+				{{ language.view_album }}
+
+			</koken:link>
+
+		</h6>
+
+	</figure>
+
+</koken:event_album>

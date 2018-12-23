@@ -1,0 +1,16 @@
+<script>
+$(function() {
+    $.each($K.pulse.refs, function(i, pulse) {
+        pulse.on('waiting', function(e) {
+        	if (e) {
+	           this
+	           	.prepend('<div class="spinner_pos active"><div class="spinner"></div></div>')
+				.css('position', 'relative');
+			} else {
+				this.find('.spinner_pos').removeClass('active');
+			}
+        });
+
+    });
+});
+</script>

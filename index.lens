@@ -1,0 +1,132 @@
+<koken:include file="layouts/header.html" />
+
+<koken:load>
+	<koken:head>
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ site.title }}" />
+		<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+		<meta property="og:type" content="website" />
+		<koken:first>
+		<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+		<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+		<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+		</koken:first>
+		<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		<koken:not empty="profile.twitter">
+			<meta name="twitter:card" content="gallery" />
+			<meta name="twitter:site" content="@{{ profile.twitter }}" />
+			<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+			<koken:loop limit="4">
+				<meta name="twitter:image{{ index }}" content="{{ content.presets.medium_large.cropped.url }}">
+			</koken:loop>
+		</koken:not>
+	</koken:head>
+</koken:load>
+
+<div class="main-content">
+
+	<div id="index_slideshow" class="slideshow">
+
+		<koken:if true="settings.show_content_load_spin">
+			<div class="spinner_pos"><div class="spinner"></div></div>
+		</koken:if>
+
+		<koken:pulse jsvar="pulse" height="100%" group="index" link_to="advance" transition_type="fade" transition_duration="1" next="#show-next" previous="#show-prev" fallbacktext="No featured content found. Assign some in the Library." />
+
+		<a href="#" id="show-prev" data-bind-to-key="left" class="hide"></a>
+		<a href="#" id="show-next" data-bind-to-key="right" class="hide"></a>
+
+	</div>
+
+	<figcaption class="text-content">
+
+		<koken:if true="settings.show_timestamp"><p class="time"></p></koken:if>
+
+		<koken:if true="settings.show_exif">
+			<ol id="exif_meta" class="meta"></ol>
+		</koken:if>
+
+		<koken:if true="settings.show_title">
+
+			<h2>
+				<a id="content_link" href="#" title=""></a>
+			</h2>
+
+		</koken:if>
+
+		<koken:if true="settings.show_caption">
+
+		<div id="caption-content">
+			&nbsp;
+		</div>
+
+		</koken:if>
+
+	</figcaption>
+
+	<script>
+		var init = false;
+		pulse.on( 'start', function() {
+			$('.spinner_pos').addClass('active');
+		});
+		pulse.on( 'dataloaded', function() {
+			$('.spinner_pos').removeClass('active');
+		});
+		pulse.on( 'hasloaded', function(e) {
+			init = true;
+		});
+		pulse.on('waiting', function(e) {
+			if (e) {
+				$('.spinner_pos').addClass('active');
+				if (init) {
+					$('.spinner_pos').addClass('init');
+				} else {
+					$('.spinner_pos').removeClass('init');
+				}
+			} else {
+				$('.spinner_pos').removeClass('active');
+			}
+		});
+		pulse.on( 'transitionstart', function(e) {
+			var data = e.data,
+				date = $('.time'),
+				caption = $('#caption-content');
+				link = $('#content_link');
+
+			currUrl = e.data.presets.medium_large.url;
+
+			link.attr("href", data.url);
+			link.html( data.title );
+			link.attr("title", data.title );
+
+			var cs = data.caption;
+			var csf = cs.replace(/\n/g,"<br />");
+			caption.html( csf );
+
+			date.html( $K.formattedDate(data.published_on) );
+
+			var exif_fields = ['aperture','exposure','focal_length','iso_speed_ratings'],
+				exif_element = $('#exif_meta'),
+				wrap = $('<li/>');
+
+			var fields = $.map(e.data.exif_fields, function(field) {
+				if ($.inArray(field,exif_fields) !== -1) {
+					return $.map(e.data.exif, function (exif_val) {
+						if (exif_val.key === field) {
+							return (exif_val.clean) ? exif_val.clean : exif_val.raw;
+						}
+					});
+				}
+			});
+
+			exif_element.html($.map(fields, function(field) {
+				return wrap.clone().text(field);
+			}));
+		});
+	</script>
+
+</div>
+
+<koken:include file="layouts/like-tweet.html" />
+
+<koken:include file="layouts/footer.html" />

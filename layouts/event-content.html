@@ -1,0 +1,38 @@
+<koken:event_content>
+
+	<figure class="block unit scrollstop">
+
+		<koken:content_image>
+			<koken:link lightbox="{{ settings.link_lbox }}" title="{{ content.title }}" class="figimg">
+				<koken:if true="settings.show_content_load_spin">
+					<div class="spinner_pos"><div class="spinner"></div></div>
+				</koken:if>
+				<koken:img lazy="true" class="height_limit" />
+			</koken:link>
+		</koken:content_image>
+
+		<koken:content_video>
+			<koken:video />
+		</koken:content_video>
+
+		<figcaption>
+
+			<koken:time />
+
+			<h2>
+				<koken:link title="{{ content.title }}">
+					{{ content.title }}
+				</koken:link>
+			</h2>
+
+			<p class="caption cap_width">
+
+				{{ content.caption }}
+
+			</p>
+
+		</figcaption>
+
+	</figure>
+
+</koken:event_content>

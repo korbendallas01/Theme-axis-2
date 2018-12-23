@@ -1,0 +1,31 @@
+<koken:event_album_update>
+
+	<figure class="block unit scrollstop">
+
+		<koken:link filter:order_by="published_on" filter:year="{{ date date_format='Y' }}" filter:month="{{ date date_format='m' }}" filter:day="{{ date date_format='d' }}" title="{{ language.view_title collate='album.title' }}">
+
+			<koken:img lazy="true" class="height_limit" />
+
+		</koken:link>
+
+		<figcaption>
+
+			<koken:time />
+
+			<h2>
+				<koken:link filter:order_by="published_on" filter:year="{{ date date_format='Y' }}" filter:month="{{ date date_format='m' }}" filter:day="{{ date date_format='d' }}" title="{{ language.view_title collate='album.title' }}">
+					{{ album.title }} ({{ content.length }} {{ language.new }} {{ content.length plural="language.items" singular="language.item" }})
+				</koken:link>
+			</h2>
+
+			<p class="caption">
+
+				{{ album.summary | album.description }}
+
+			</p>
+
+		</figcaption>
+
+	</figure>
+
+</koken:event_album_update>

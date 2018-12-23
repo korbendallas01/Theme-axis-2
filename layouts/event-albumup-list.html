@@ -1,0 +1,47 @@
+<koken:event_album_update>
+
+	<figure class="block unit scrollstop">
+
+		<koken:if condition="{{ content.length }} > 1">
+
+			<div class="slideshow">
+				<koken:pulse group="time_albumup_list" link_to="advance" data="album.content" transition_type="fade" transition_duration="1" />
+			</div>
+
+		<koken:else>
+
+			<koken:link lightbox="{{ settings.link_lbox }}" filter:order_by="published_on" filter:year="{{ date date_format='Y' }}" filter:month="{{ date date_format='m' }}" filter:day="{{ date date_format='d' }}" title="{{ language.view_title collate='album.title' }}" class="figimg">
+				<koken:img lazy="true" class="height_limit" />
+			</koken:link>
+
+		</koken:if>
+
+		<figcaption>
+
+			<h2>
+				<koken:link filter:order_by="published_on" filter:year="{{ date date_format='Y' }}" filter:month="{{ date date_format='m' }}" filter:day="{{ date date_format='d' }}" title="{{ language.view_title collate='album.title' }}">
+					{{ album.title }} ({{ content.length }} {{ language.new }} {{ content.length plural="language.items" singular="language.item" }})
+				</koken:link>
+			</h2>
+
+			<p class="cap_width">
+
+				{{ album.summary | album.description }}
+
+			</p>
+
+		</figcaption>
+
+		<h6>
+
+			<koken:link filter:order_by="published_on" filter:year="{{ date date_format='Y' }}" filter:month="{{ date date_format='m' }}" filter:day="{{ date date_format='d' }}" title="{{ language.view_title collate='album.title' }}" class="pag lh_push_plus">
+
+				{{ language.view_album }}
+
+			</koken:link>
+
+		</h6>
+
+	</figure>
+
+</koken:event_album_update>

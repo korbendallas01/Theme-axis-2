@@ -1,0 +1,31 @@
+<koken:link class="figimg">
+
+	<koken:if data="{{ settings.img_scale }}" equals="uniform">
+
+		<koken:img lazy="true" size="{{ settings.thumb_ratio }}" />
+
+	</koken:if>
+
+	<koken:if data="{{ settings.img_scale }}" equals="none">
+
+		<koken:img lazy="true" class="height_limit" />
+
+	</koken:if>
+
+	<koken:if true="settings.show_content_load_spin">
+		<div class="spinner_pos"><div class="spinner"></div></div>
+	</koken:if>
+
+</koken:link>
+
+<figcaption>
+
+	<koken:if true="settings.show_timestamp"><koken:time /></koken:if>
+
+	<koken:if true="settings.show_title"><h2><koken:link>{{ album.title }}</koken:link></h2></koken:if>
+
+	<koken:if true="settings.show_caption"><p class="caption">{{ album.summary | album.description }}</p></koken:if>
+
+	<koken:include file="layouts/tags-cats.html" />
+
+</figcaption>

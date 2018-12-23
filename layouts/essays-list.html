@@ -1,0 +1,35 @@
+<koken:loop>
+
+	<article id="essay_{{ essay.id }}" class="unit measure_editable scrollstop" data-pjax-transition>
+
+	    <koken:include file="layouts/article-{{ settings.article_type }}.html" />
+
+	    <footer>
+
+		    <koken:more>
+	          <h6>
+	          	<koken:link title="{{ essay.title }}" class="pag">{{ essay.read_more_label }}</koken:link>
+	          </h6>
+	        </koken:more>
+
+	        <koken:include file="layouts/tags-cats.html" />
+
+	        <koken:if true="settings.show_disc_essay_count">
+
+				<koken:discussion_count>
+					<koken:link>
+						<p class="meta">
+							{{ discussion_count }}
+						</p>
+					</koken:link>
+				</koken:discussion_count>
+
+			</koken:if>
+
+		</footer>
+
+	</article>
+
+</koken:loop>
+
+<koken:include file="layouts/slideshow-spinner.html" />

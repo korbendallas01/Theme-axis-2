@@ -1,0 +1,36 @@
+<koken:if true="settings.show_page_tags">
+
+	<koken:tags>
+
+		<p class="meta">
+
+			<koken:loop separator="&nbsp;">
+
+				<koken:link class="mute tag">{{ tag.title }}</koken:link>
+
+			</koken:loop>
+
+		</p>
+
+	</koken:tags>
+
+</koken:if>
+
+<koken:if true="settings.show_page_cats">
+
+	<koken:categories>
+
+		<p class="meta nob">
+            {{ language.categories }}
+       </p>
+       <koken:loop separator=", ">
+            <h4 class="inline">
+                 <koken:link title="{{ language.view_title collate='category.title' }}">
+                      {{ category.title }}
+                 </koken:link>
+            </h4>
+       </koken:loop>
+
+	</koken:categories>
+
+</koken:if>

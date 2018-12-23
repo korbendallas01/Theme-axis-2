@@ -1,0 +1,90 @@
+<koken:loop>
+
+	<figure id="content_{{ content.id }}" class="block unit scrollstop">
+
+		<div class="main-content figimg">
+
+			<koken:content_image>
+
+				<koken:if true="settings.link_lbox">
+					<koken:link lightbox="true" title="{{ language.view_title collate='content.title' }}"><koken:img lazy="true" class="height_limit" /></koken:link>
+				<koken:else>
+					<koken:link title="{{ language.view_title collate='content.title' }}"><koken:img lazy="true" class="height_limit" /></koken:link>
+				</koken:if>
+
+				<koken:if true="settings.show_content_load_spin">
+					<div class="spinner_pos"><div class="spinner"></div></div>
+				</koken:if>
+
+			</koken:content_image>
+
+			<koken:content_video>
+
+				<koken:video />
+
+			</koken:content_video>
+
+		</div>
+
+		<figcaption class="text-content">
+
+			<koken:if true="settings.show_timestamp"><koken:time /></koken:if>
+
+			<koken:if true="settings.show_exif">
+				<koken:exif>
+					<ol id="exif_meta" class="meta">
+						<koken:not empty="exif.aperture">
+							<li>
+								{{ exif.aperture }}
+							</li>
+						</koken:not>
+						<koken:not empty="exif.exposure">
+							<li>
+								{{ exif.exposure }}
+							</li>
+						</koken:not>
+						<koken:not empty="exif.focal_length">
+							<li>
+								{{ exif.focal_length }}
+							</li>
+						</koken:not>
+						<koken:not empty="exif.iso_speed_ratings">
+							<li>
+								{{ exif.iso_speed_ratings }}
+							</li>
+			    		</koken:not>
+					</ol>
+				</koken:exif>
+			</koken:if>
+
+			<koken:if true="settings.show_title">
+				<koken:not empty="content.title">
+					<h2>
+						<koken:link title="{{ content.title }}">
+							{{ content.title }}
+						</koken:link>
+					</h2>
+				</koken:not>
+			</koken:if>
+
+			<koken:if true="settings.show_rating">
+				<koken:rating>
+					<p>{{ rating }}</p>
+				</koken:rating>
+			</koken:if>
+
+			<koken:if true="settings.show_caption">
+				<p class="cap_width">
+					{{ content.caption }}
+				</p>
+			</koken:if>
+
+			<koken:include file="layouts/tags-cats.html" />
+
+		</figcaption>
+
+	</figure>
+
+</koken:loop>
+
+<koken:keyboard_scroll element="figure" offset="-20" />

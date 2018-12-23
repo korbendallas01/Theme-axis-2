@@ -1,0 +1,51 @@
+<koken:pagination limit="20">
+
+	<koken:if true="manual_order">
+		<koken:variable name="previous_label" value="{{ language.previous }}" />
+		<koken:variable name="next_label" value="{{ language.next }}" />
+	<koken:else>
+		<koken:variable name="previous_label" value="{{ language.newer }}" />
+		<koken:variable name="next_label" value="{{ language.older }}" />
+	</koken:parent>
+
+	<hr>
+
+	<ul class="nav_content">
+
+		<koken:pagination_previous>
+			<li>
+				<koken:link class="pag mute larr" title="{{ previous_page.number }}" bind_to_key="left">
+					{{ previous_label }}
+				</koken:link>
+				&nbsp;
+			</li>
+		</koken:pagination_previous>
+
+		<koken:pagination_limited_previous>
+			<koken:link>...</koken:link>&nbsp;
+		</koken:pagination_limited_previous>
+
+		<koken:loop>
+			<koken:link class="pag mute {{ is_current }}" title="{{ number }}">
+				{{ number }}
+			</koken:link>
+			&nbsp;
+		</koken:loop>
+
+		<koken:pagination_limited_next>
+			<koken:link>...</koken:link>&nbsp;
+		</koken:pagination_limited_next>
+
+		<koken:pagination_next>
+			<li>
+				<koken:link class="pag mute rarr" title="{{ next_page.number }}" bind_to_key="right">
+					{{ next_label }}
+				</koken:link>
+			</li>
+		</koken:pagination_next>
+
+	</ul>
+
+	<hr>
+
+</koken:pagination>

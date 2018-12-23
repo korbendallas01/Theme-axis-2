@@ -1,0 +1,5 @@
+<koken:include file="layouts/header.html" />
+
+{{ language.error }}: {{ routed_variables.code }}
+
+<koken:include file="layouts/footer.html" />

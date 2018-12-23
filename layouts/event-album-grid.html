@@ -1,0 +1,31 @@
+<koken:event_album>
+
+	<figure class="block unit scrollstop">
+
+		<koken:link title="{{ album.title }}">
+
+			<koken:img lazy="true" class="height_limit" />
+
+		</koken:link>
+
+		<figcaption>
+
+			<koken:time />
+
+			<h2>
+				<koken:link title="{{ album.title }}">
+					{{ album.title }}
+				</koken:link>
+			</h2>
+
+			<p class="caption">
+
+				{{ album.summary | album.description }}
+
+			</p>
+
+		</figcaption>
+
+	</figure>
+
+</koken:event_album>

@@ -1,0 +1,90 @@
+<koken:if true="pjax">
+	<koken:title />
+<koken:else>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<koken:meta />
+	<koken:title />
+
+	<koken:asset file="reset.css" common="true" />
+	<koken:if true="settings.social_bttns_show_one | settings.show_rating"><koken:asset file="kicons.css" common="true" /></koken:if>
+	<koken:settings />
+
+	<koken:asset file="jquery.pjax.js" common="true" />
+	<koken:asset file="jquery.pjax-transition.js" common="true" />
+	<koken:asset file="pillar.js" common="true" />
+	<koken:asset file="js/axis.js" />
+	<koken:asset file="js/jquery.scrollTo.min.js" />
+	<koken:asset file="js/swiftclick.min.js" />
+</head>
+
+<body class="k_mob_show_{{ settings.mob_nav_display }}">
+
+	<a name="top" id="top"></a>
+
+	<koken:if true="settings.social_bttns_show_two">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+	</koken:if>
+
+	<nav id="mob_nav" class="layout_{{ settings.mob_nav_layout }} layout_desk_{{ settings.mob_nav_layout_desktop }}">
+		<div id="mob_pag_up" class="mob_pag">
+			<a id="backtop_mob" class="backtop_link arrow_font" href="#top" data-bind-to-key="up" title="{{ language.back_to_top }}"><i class="kicon-angle-up"></i></a>
+		</div>
+		<div id="mob_pag_down" class="mob_pag">
+			<a href="#" class="arrow_font" title="{{ language.next }}" data-koken-keyboard-scroll-next><i class="kicon-angle-down"></i></a>
+		</div>
+		<div class="mob_nav_content">
+			<koken:navigation />
+			<koken:if true="settings.show_search">
+				<koken:search />
+			</koken:if>
+		</div>
+		<a href="#" id="mt"><span></span></a>
+	</nav>
+
+	<div id="container">
+
+		<header class="top">
+
+			<div class="site_title_block">
+
+				<koken:if true="settings.show_tagline">
+					<div class="site_tagline">
+						{{ site.tagline }}
+					</div>
+				</koken:if>
+				<koken:if data="settings.site_title_type" equals="text">
+					<h1 class="site_title">
+						<koken:link to="front" title="{{ language.home }}">{{ site.title }}</koken:link>
+					</h1>
+				<koken:else>
+					<koken:link to="front" title="{{ language.home }}"><img src="{{ settings.site_title_img_url }}" alt="{{ site.title }}" class="custom_logo"></koken:link>
+				</koken:if>
+
+			</div>
+
+			<nav id="main">
+				<koken:navigation />
+			</nav>
+
+			<koken:if true="settings.show_search">
+				<koken:search />
+			</koken:if>
+
+		</header>
+
+</koken:if>
+
+		<main class="pjax-transition-container">

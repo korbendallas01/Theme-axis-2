@@ -1,0 +1,55 @@
+<koken:pagination>
+
+	<ul class="nav_content split lh_plus">
+
+		<li>
+			<koken:pagination_previous>
+				<koken:link class="pag mute larr" title="{{ previous_page.number }}" bind_to_key="left" data-paginate-pjax="true">
+					{{ language.newer }}
+				</koken:link>
+			<koken:else>
+				<span class="pag disabled larr">
+					{{ language.newer }}
+				</span>
+			</koken:pagination_previous>
+		</li>
+
+		<li>
+			<koken:link to="timeline" class="pag mute">
+				{{ language.latest }}
+			</koken:link>
+		</li>
+
+		<li>
+			<koken:pagination_next>
+				<koken:link class="pag mute rarr" title="{{ next_page.number }}" bind_to_key="right" data-paginate-pjax="true">
+					{{ language.older }}
+				</koken:link>
+			<koken:else>
+				<span class="pag disabled rarr">
+					{{ language.older }}
+				</span>
+			</koken:pagination_next>
+		</li>
+	</ul>
+
+</koken:pagination>
+
+<div data-pjax-transition>
+
+<koken:loop>
+
+	<koken:event>
+
+		<koken:include file="layouts/event-album-latest.html" />
+		<koken:include file="layouts/event-albumup-latest.html" />
+		<koken:include file="layouts/event-content.html" />
+		<koken:include file="layouts/event-essay.html" />
+
+	</koken:event>
+
+</koken:loop>
+
+</div>
+
+<koken:include file="layouts/pagination-footer.html" />
